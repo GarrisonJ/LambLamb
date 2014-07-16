@@ -21,7 +21,7 @@ data Expr
 
 lam :: Parser Expr
 lam = do
-  char '\\'
+  char '\\' <|> char 'λ'
   n <- letter
   string "."
   e <- expr
