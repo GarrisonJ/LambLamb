@@ -10,7 +10,8 @@ import Text.Parsec
 import Text.Parsec.String
 import Data.Either
 
-type VarName = Char 
+type VColor  = Int
+data VarName = VC VColor String deriving (Eq, Show)
 
 data Expr
   = Var VarName
@@ -24,7 +25,7 @@ lam = do
   n <- letter
   string "."
   e <- expr
-  return $ Lam n e
+  return $ Lam (VC 0 [n]) e
 
 app :: Parser Expr
 app = do
@@ -34,7 +35,7 @@ app = do
 var :: Parser Expr
 var = do
   n <- letter
-  return $ Var n
+  return $ Var $ VC 0 [n]
 
 parens :: Parser Expr -> Parser Expr
 parens p = do
