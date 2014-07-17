@@ -11,4 +11,7 @@ import LambdaCalc
 import LambdaParser
 
 main :: IO ()
-main = lambdaParser >>= print >> main 
+main = do
+      l <- lambdaParser
+      e <- return $ eval l
+      print e >> main

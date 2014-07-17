@@ -52,7 +52,7 @@ decl = do
   eof
   return e
 
-lambdaParser :: IO ()
+lambdaParser :: IO Expr
 lambdaParser = do 
   n <- getLine 
-  parseTest decl n
+  return $ head $ rights [parse decl "" n]
