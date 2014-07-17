@@ -5,19 +5,15 @@
 -- even for commercial purposes, all without asking permission.
 -- For more information, please refer to <http://unlicense.org/> 
 -- or the accompanying LICENSE file. 
+--
+module LambdaParser
+    ( lambdaParser
+    ) where
 
 import Text.Parsec
 import Text.Parsec.String
 import Data.Either
-
-type VColor  = Int
-data VarName = VC VColor String deriving (Eq, Show)
-
-data Expr
-  = Var VarName
-  | Lam VarName Expr
-  | App Expr Expr
-  deriving (Eq, Show)
+import LambdaCalc
 
 lam :: Parser Expr
 lam = do
@@ -56,10 +52,7 @@ decl = do
   eof
   return e
 
-test :: IO ()
-test = do 
+lambdaParser :: IO ()
+lambdaParser = do 
   n <- getLine 
   parseTest decl n
-
-main :: IO ()
-main = test >>= print >> main
