@@ -33,8 +33,7 @@ eval' (Lam v e) (x:stack)  = eval' (betaRed e v x) stack
 eval' (App e1 e2) stack    = eval' e1 (e2:stack)
 
 unwind :: Expr -> [Expr] -> Expr
-unwind expr []      = expr
-unwind expr (x:xs)  = unwind (App expr $ eval x) xs 
+unwind = foldl (\ expr x -> App expr $ eval x)
 
 -- (λx.Mx) ==> M 
 etaRed :: Expr -> Expr
