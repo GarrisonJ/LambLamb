@@ -61,7 +61,7 @@ betaRed (Lam x body) v e = Lam x' (betaRed body' v e)
                                else uniXinE
                     in (uniX,betaRed body x (Var x'))
            else (x,body)
-       colorpplus (VC c n) (VC c' _) = VC ((max c c')+1) n
+       colorpplus (VC c n) (VC c' _) = VC (max c c' + 1) n
        colorpplus' v1@(VC _ n) v2@(VC _ n') = 
                    if n==n' then colorpplus v1 v2 else v1
 
