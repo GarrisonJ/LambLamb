@@ -20,7 +20,12 @@ data Expr
   = Var VarName
   | Lam VarName Expr
   | App Expr Expr
-  deriving (Eq, Show)
+  deriving (Eq)
+
+instance Show Expr where
+  show (Var (VC _ s))   = s
+  show (Lam (VC _ s) e) = "λ" ++ s ++ "." ++ show e
+  show (App e1 e2)      = "(" ++ show e1 ++ ")(" ++ show e2 ++ ")"
 
 eval :: Expr -> Expr
 eval expr = eval' expr []
