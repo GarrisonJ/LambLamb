@@ -6,7 +6,7 @@
 -- For more information, please refer to <http://unlicense.org/> 
 -- or the accompanying LICENSE file. 
 --
-module LambdaParser
+module Parser
     ( lambdaParser
     ) where
 
