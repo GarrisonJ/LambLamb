@@ -8,7 +8,7 @@
 --
 
 import LambdaCalc
-import LambdaParser
+import Parser
 
 main :: IO ()
 main = do
