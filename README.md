@@ -1,3 +1,16 @@
+Install LambLamb
+
+    git clone https://github.com/GarrisonJ/LambLamb.git
+    cd LambLamb 
+    cabal install
+
+Using LambLamb
+
+    LambLamb
+    (\s.\z.s(z))(\w.(\y.(\x.y(wyx))))(\s.\z.s(z))
+    λy.λx.(y)((y)(x))
+
+
 # Lambda Calculus:
     \ or λ  Denotes lambda  
     .       Denotes dot  
