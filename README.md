@@ -4,15 +4,15 @@
     ()      Denotes order  
     a-z     Denotes names  
 
-## Examples:  
+## Church encoding:  
 
-    \x.x            # unit  
-    \sz.z           # Zero  
-    \sz.s(z)        # One  
-    \sz.s(s(z))     # Two  
-    \sz.s(s(s(z)))  # Three  
-    \xy.x           # True  
-    \xy.y           # False  
+    \x.x              # Unit  
+    \s.\z.z           # Zero  
+    \s.\z.s(z)        # One  
+    \s.\z.s(s(z))     # Two  
+    \f.\x.f(f(f(x)))  # Three
+    \x.\y.x           # True  
+    \x.\y.y           # False  
 
 ### Addition  
 
@@ -25,3 +25,12 @@
 ### Division  
 
     (\n.((\f.(\x.xx)(\x.f(xx)))(\c.\n.\m.\f.\x.(\d.(\n.n(\x.(\a.\b.b))(\a.\b.a))d((\f.\x.x)fx)(f(cdmfx)))((\m.\n.n(\n.\f.\x.n(\g.\h.h(gf))(\u.x)(\u.u))m)nm)))((\n.\f.\x.f(nfx))n))  
+
+9/3 is written as follows:
+
+    (\n.((\f.(\x.xx)(\x.f(xx)))(\c.\n.\m.\f.\x.(\d.(\n.n(\x.(\a.\b.b))(\a.\b.a))d((\f.\x.x)fx)(f(cdmfx)))((\m.\n.n(\n.\f.\x.n(\g.\h.h(gf))(\u.x)(\u.u))m)nm)))((\n.\f.\x.f(nfx))n))(\f.\x.f(f(f(f(f(f(f(f(fx)))))))))(\f.\x.f(f(fx)))
+
+Which evaluates to:
+
+    \f.\x.f(f(f(x)))
+
