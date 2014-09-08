@@ -13,5 +13,5 @@ import Parser
 main :: IO ()
 main = do
       l <- lambdaParser
-      e <- return $ eval l
-      print e >> main
+      print $ eval l
+      >> main
